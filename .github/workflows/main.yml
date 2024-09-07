@@ -27,9 +27,9 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 9
-          
+
       - name: Install dependencies
-        run: pnpm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Build Next.js app
         run: pnpm build
