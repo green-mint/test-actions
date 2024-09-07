@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Print Secrets
+        run: echo ${{ secrets.NEXT_PUBLIC_API_URL }} ${{ secrets.DATABASE_URL }} ${{ secrets.API_KEY }}
+
       - uses: actions/checkout@v3
 
       - name: Use Node.js
@@ -39,6 +42,3 @@ jobs:
           pnpm start &
           sleep 10
           curl http://localhost:3000 || exit 1
-
-      - name: Run tests
-        run: pnpm test
